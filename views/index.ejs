@@ -1,0 +1,42 @@
+<%- include("partials/header.ejs") %>
+
+
+<div class="date">
+  <h1> <%= listTitle %></h1>
+</div>
+
+<div class="form">
+
+  <form action="/" method="post" id="form-container">
+    <input type="text" name="toDo" id="task" placeholder="What to do?" autocomplete="off">
+    <button type="submit" name="add" id="btn" value="<%= listTitle %>">Add</button>
+  </form>
+  
+  <div class="todos">
+
+    <% if (locals.newItemlist) { %> 
+      <% newItemlist.forEach(todo => { %>
+        <form action="/delete" method="post">
+          <div class="todos-items">
+  
+            <input type="checkbox" id="checkbox" name="checkbox" value="<%= todo._id %>" onChange="this.form.submit()">
+            <p> <%= todo.name %> </p>
+            
+          </div>
+          <input type="hidden" name="listName" value="<%= listTitle %>">
+        </form>
+
+      <% }); %>
+    <% } else { %>  
+      <div>
+        <p>No tasks added yet.</p>
+      </div>
+    <% } %>
+  
+  </div>
+
+</div>
+
+
+
+<%- include("partials/footer.ejs") %>
