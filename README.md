@@ -12,7 +12,9 @@ Take note that it is also not case sensitive as I use **lodash** for that functi
 
 # How to use
 First install all the packages and modules by typing `npm i` or `npm install` on your terminal. 
-Type in the URL: localhost:3000 to start making your own lists.
+- type `mongod` on one shell to make a database using MongoDB
+- initialize your app by typing `node index.js`
+- type in the URL: localhost:3000 to start making your own lists
 
 # Tools used
 EJS, CSS, NodeJS, ExpressJS, MongoDB, Mongoose
