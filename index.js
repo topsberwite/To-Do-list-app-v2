@@ -1,5 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
+import _ from "lodash";
+import "dotenv/config";
 
 const app = express();
 const port = 3000;
@@ -7,7 +9,7 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb://127.0.0.1:27017/todolistDB", { useNewUrlParser: true });
+await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 
 const itemsSchema = new mongoose.Schema ({
   name: String
